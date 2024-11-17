@@ -1,0 +1,138 @@
+//MVI A,06
+//STA 5050
+//LHLD 5050
+//MOV D,H
+//MOV E,L
+//MVI B,00
+//MVI C,00//FOR CARRY
+//LDA 5050
+//DCR A
+//FACT : /STA 5051
+//LOOP : /DAD D
+//JNC NC
+//INX B
+//NC : //DCR A
+//JNZ LOOP
+//MOV D,H
+//MOV E,L
+//LDA 5051
+//DCR A
+//JNZ FACT
+//XCHG
+//LXI H,3112
+//MOV M,B
+//INX H
+//MOV M,C
+//INX H
+//MOV M,D
+//INX H
+//MOV M,E
+//HLT
+//MVI A,04
+//STA 5050
+//LHLD 5050
+//MOV D,H
+//MOV E,L
+//LXI B,0000
+//LDA 5050
+//DCR A
+//STA 5051
+L1:// DAD D
+//JNC NOT
+//INX B
+NOT :// DCR A
+//JNZ L1
+//LDA 5051
+//DCR A
+//JZ BIG
+//MOV D,H
+//MOV E,L
+//DCR A
+//STA 5051
+//JNZ L1
+BIG :// XCHG
+//LXI H,3112
+//MOV M,B
+//INX H
+//MOV M,C
+//INX H
+//MOV M,D
+//INX H
+//MOV M,E
+//
+//HLT
+MVI A,05
+STA 5050
+MVI H,00
+MVI D,00
+LXI B,0000
+MOV L,A
+MOV E,A
+OD : DCR A
+STA 5051
+LD : DAD D
+JNC N
+INX B
+N : DCR A
+JNZ LD
+MOV D,H
+MOV E,L
+LDA 5051
+JNZ OD
+XCHG
+LXI H,3112
+MOV M,B
+INX H
+MOV M,C
+INX H
+MOV M,D
+INX H
+MOV M,E
+HLT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
